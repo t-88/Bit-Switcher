@@ -1,7 +1,6 @@
 # how to connect a gate to its self
 import pygame
-from backend.backend import *
-from frontend.pin import *
+from frontend.engine import *
 
 pygame.init()
 screen = pygame.display.set_mode((600,600))
@@ -9,11 +8,10 @@ clock = pygame.time.Clock()
 done = False
 
 
-pin1 = Pin(100,200)
-pin2 = Pin(100,400)
-pin3 = Pin(500,300)
-pin4 = Pin(550,300)
-pines = [pin1,pin2,pin3,pin4]
+
+engine = Engine()
+
+
 
 
 while(not done): 
@@ -23,9 +21,9 @@ while(not done):
 
     screen.fill("black")
 
-    for pin in pines:
-        pin.update()
-        pin.render(screen)
+
+    engine.run(screen)
+
 
 
     pygame.display.flip()
